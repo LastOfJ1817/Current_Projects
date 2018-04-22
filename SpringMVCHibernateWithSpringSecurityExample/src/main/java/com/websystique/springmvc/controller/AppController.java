@@ -127,7 +127,7 @@ public class AppController {
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.GET)
 	public String getContactInformation(ModelMap model) {
-		User user = new User();
+		User user = userService.findBySSO(getPrincipal());
 		model.addAttribute("user", user);
 		
 		model.addAttribute("loggedinuser", getPrincipal());
